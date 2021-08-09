@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "green", "id": "574101676761555", "label": "574101676761555", "shape": "dot", "size": 10}, {"id": "574697990567555", "label": "574697990567555", "shape": "dot", "size": 5}, {"color": "red", "id": "570445897409555", "label": "570445897409555", "shape": "dot", "size": 20}, {"color": "green", "id": "568803022588555", "label": "568803022588555", "shape": "dot", "size": 10}, {"id": "363531150577555", "label": "363531150577555", "shape": "dot", "size": 5}, {"id": "0", "label": "0", "shape": "dot", "size": 5}, {"id": "560220538591555", "label": "560220538591555", "shape": "dot", "size": 5}, {"color": "green", "id": "563373300502555", "label": "563373300502555", "shape": "dot", "size": 10}, {"id": "564796489986555", "label": "564796489986555", "shape": "dot", "size": 5}, {"id": "565157133509555", "label": "565157133509555", "shape": "dot", "size": 5}, {"color": "green", "id": "487752971950555", "label": "487752971950555", "shape": "dot", "size": 10}, {"color": "green", "id": "206026307277555", "label": "206026307277555", "shape": "dot", "size": 10}, {"id": "571364566596555", "label": "571364566596555", "shape": "dot", "size": 5}, {"id": "565160152500555", "label": "565160152500555", "shape": "dot", "size": 5}, {"id": "566575327763555", "label": "566575327763555", "shape": "dot", "size": 5}, {"color": "green", "id": "869293956164555", "label": "869293956164555", "shape": "dot", "size": 10}, {"id": "562638723548555", "label": "562638723548555", "shape": "dot", "size": 5}, {"color": "green", "id": "351434472596555", "label": "351434472596555", "shape": "dot", "size": 10}, {"id": "568575194517555", "label": "568575194517555", "shape": "dot", "size": 5}, {"color": "green", "id": "579061725957555", "label": "579061725957555", "shape": "dot", "size": 10}, {"id": "569222156960555", "label": "569222156960555", "shape": "dot", "size": 5}, {"color": "green", "id": "576578915158555", "label": "576578915158555", "shape": "dot", "size": 10}, {"id": "565164865507555", "label": "565164865507555", "shape": "dot", "size": 5}, {"color": "green", "id": "373449195593555", "label": "373449195593555", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"arrowStrikethrough": true, "arrows": "to", "from": "574101676761555", "to": "566575327763555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "565157133509555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "563373300502555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "576578915158555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "571364566596555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "565164865507555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "566575327763555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "570445897409555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "564796489986555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "574697990567555", "to": "569222156960555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "565160152500555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "0"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "570445897409555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "869293956164555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "568575194517555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "560220538591555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "570445897409555", "to": "562638723548555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "568803022588555", "to": "565164865507555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "363531150577555", "to": "0"}, {"arrowStrikethrough": true, "arrows": "to", "from": "363531150577555", "to": "373449195593555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "564796489986555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "571364566596555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "569222156960555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "566575327763555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "565157133509555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "0", "to": "565164865507555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "560220538591555", "to": "565157133509555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "560220538591555", "to": "565164865507555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "560220538591555", "to": "571364566596555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "560220538591555", "to": "564796489986555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "564796489986555", "to": "568575194517555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "564796489986555", "to": "487752971950555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "565157133509555", "to": "565160152500555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "565157133509555", "to": "206026307277555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "571364566596555", "to": "568575194517555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "571364566596555", "to": "351434472596555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "571364566596555", "to": "565160152500555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "565160152500555", "to": "565164865507555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "565160152500555", "to": "569222156960555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "566575327763555", "to": "562638723548555"}, {"arrowStrikethrough": true, "arrows": "to", "from": "579061725957555", "to": "569222156960555"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
