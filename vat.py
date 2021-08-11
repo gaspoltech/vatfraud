@@ -122,10 +122,10 @@ def main():
         tsk = tsk[['NPWP','NAMA','score']]
         # db['score'] = db['score'].astype('str')+" %"
         # db.sort_values(by='score',ascending=False)
-        db = pd.merge(db,tsk,how='left',on="NPWP")
+        dbb = pd.merge(db,tsk,how='left',on="NPWP")
         c1,c2 = st.beta_columns((1,1))
         with c1:
-            st.dataframe(db)
+            st.dataframe(dbb)
             listwp = db['NPWP'].tolist()
             # listwp = decompress_pickle('listwp')
         with c2:
