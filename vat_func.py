@@ -122,8 +122,8 @@ def similarityInput(aList):
 
 def corrInput(idxnum):
     trees,ekspor,impor,jual,beli = pickle.load(open("all_final.pickle","rb"))
-    db,C, setImpor,setEkspor = pickle.load(open("corr_all.p","rb"))
-    # db,C, setImpor,setEkspor = decompress_pickle("cordata.pbz2")
+#     db,C, setImpor,setEkspor = pickle.load(open("corr_all.p","rb"))
+    db,C, setImpor,setEkspor = decompress_pickle("cordata.pbz2")
     num = int(idxnum)
     masukan = set(db.impor[num])
     keluaran = set(db.ekspor[num])
