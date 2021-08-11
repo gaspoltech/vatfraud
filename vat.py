@@ -62,8 +62,8 @@ def draw_graph(npwp):
     hidden_net = []
     for item in H.nodes:
         if item not in idx :hidden_net.append(item)
-    return pyvis_graph.show('graph.html')
-    # return pyvis_graph.show('/tmp/graph.html')
+#     return pyvis_graph.show('graph.html')
+    return pyvis_graph.show('/tmp/graph.html')
 def gen_list(npwp):
     A = decompress_pickle('A.pbz2')
     tree = decompress_pickle('tree.pbz2')
@@ -148,8 +148,8 @@ def main():
             c1,c2 = st.beta_columns((1,1))
             with c1:
                 draw_graph(npwp)
-                HtmlFile = open("graph.html", 'r', encoding='utf-8')
-                # HtmlFile = open("/tmp/graph.html", 'r', encoding='utf-8')
+#                 HtmlFile = open("graph.html", 'r', encoding='utf-8')
+                HtmlFile = open("/tmp/graph.html", 'r', encoding='utf-8')
                 source_code = HtmlFile.read() 
 #                 print(source_code)
                 components.html(source_code,height = 550,width=650)
