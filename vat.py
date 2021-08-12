@@ -15,7 +15,7 @@ import joblib
 import bz2
 import pickle
 import _pickle as cPickle
-from vat_func import treeDb,decompress_pickle,similarToken_client,similarToken2_client,similarityInput,corrInput
+from vat_func import treeDb,decompress_pickle,similarToken_client,similarToken2_client
 
 st.set_page_config(layout='wide')
 
