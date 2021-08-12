@@ -120,15 +120,15 @@ def similarityInput(aList):
 #     #     cDict[each]  = np.sum(C[tIdx,setEkspor.index(ekspor[each])])
 #     # return {k: v for k, v in sorted(cDict.items(), key=lambda item: item[1],reverse=False)}
 
-def corrInput(idxnum):
-    trees,ekspor,impor,jual,beli = pickle.load(open("all_final.pickle","rb"))
-#     db,C, setImpor,setEkspor = pickle.load(open("corr_all.p","rb"))
-    db,C, setImpor,setEkspor = decompress_pickle("cordata.pbz2")
-    num = int(idxnum)
-    masukan = set(db.impor[num])
-    keluaran = set(db.ekspor[num])
-    cDict = {}
-    tIdx = [setImpor.index(impor[each]) for each in masukan]
-    for each in keluaran:
-        cDict[each]  = np.sum(C[tIdx,setEkspor.index(ekspor[each])])
-    return {k: v for k, v in sorted(cDict.items(), key=lambda item: item[1],reverse=False)}
+# def corrInput(idxnum):
+#     trees,ekspor,impor,jual,beli = pickle.load(open("all_final.pickle","rb"))
+# #     db,C, setImpor,setEkspor = pickle.load(open("corr_all.p","rb"))
+#     db,C, setImpor,setEkspor = decompress_pickle("cordata.pbz2")
+#     num = int(idxnum)
+#     masukan = set(db.impor[num])
+#     keluaran = set(db.ekspor[num])
+#     cDict = {}
+#     tIdx = [setImpor.index(impor[each]) for each in masukan]
+#     for each in keluaran:
+#         cDict[each]  = np.sum(C[tIdx,setEkspor.index(ekspor[each])])
+#     return {k: v for k, v in sorted(cDict.items(), key=lambda item: item[1],reverse=False)}
