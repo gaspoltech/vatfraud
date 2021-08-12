@@ -114,7 +114,7 @@ def main():
     # menu = ["Input-Output Correlation","Network Analysis"]
     
     # choice = st.sidebar.selectbox("Select Menu", menu)
-    tsk = pd.read_csv('transaksi_wp.csv')
+    tsk = pd.read_csv('transaksi_wp2.csv')
     tsk.fillna(0, inplace=True)
     tsk['nilai_transaksi'] = tsk['nilai_transaksi'].astype('int64')
     tsk['jumlah_transaksi'] = tsk['jumlah_transaksi'].astype('int')
